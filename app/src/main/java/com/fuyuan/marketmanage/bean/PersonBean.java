@@ -1,12 +1,14 @@
 package com.fuyuan.marketmanage.bean;
 
-import cn.bmob.v3.BmobObject;
+import java.io.Serializable;
+
+import cn.bmob.v3.BmobUser;
 
 /**
  * Created by xin on 2016/12/29.
  */
 
-public class PersonBean extends BmobObject {
+public class PersonBean extends BmobUser implements Serializable {
     private String username;
     private String pwd;
 
