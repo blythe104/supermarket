@@ -51,7 +51,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 } else {
                     PersonBean personBean = new PersonBean();
                     personBean.setUsername(mEtUserName.getText().toString());
-                    personBean.setPwd(mEtPwd.getText().toString());
+                    personBean.setPassword(mEtPwd.getText().toString());
                     personBean.save(new SaveListener<String>() {
                         @Override
                         public void done(String s, BmobException e) {
