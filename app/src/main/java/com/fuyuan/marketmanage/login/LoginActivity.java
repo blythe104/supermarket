@@ -11,10 +11,8 @@ import android.widget.Toast;
 import com.fuyuan.marketmanage.MainActivity;
 import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.base.BaseActivity;
-import com.fuyuan.marketmanage.config.MyConfig;
 import com.fuyuan.marketmanage.register.RegisterActivity;
 
-import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.LogInListener;
@@ -30,7 +28,6 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void initView() {
-        Bmob.initialize(this, MyConfig.APP_ID);
         setContentView(R.layout.activity_login);
 
         mUserName = (EditText) findViewById(R.id.et_username);
@@ -60,7 +57,7 @@ public class LoginActivity extends BaseActivity {
                         @Override
                         public void done(Object o, BmobException e) {
                             if (o != null) {
-                                toast("登录成功" + o.toString());
+                                toast("登录成功");
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             } else {
                                 toast("登录失败");

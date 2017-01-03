@@ -44,28 +44,32 @@ public class RegisterActivity extends BaseActivity {
     public void processClick(View v) {
         switch (v.getId()) {
             case R.id.btn_register:
-                BmobUser bmobUser = new BmobUser();
-                String userName = mUserName.getText().toString();
-                String password = mUserPwd.getText().toString();
-                if (TextUtils.isEmpty(userName) || TextUtils.isEmpty(password)) {
-                    Toast.makeText(this, "用户名或者密码不能为空", Toast.LENGTH_SHORT).show();
-                } else {
-                    bmobUser.setUsername(userName);
-                    bmobUser.setPassword(password);
-                    bmobUser.signUp(new SaveListener<Object>() {
-                        @Override
-                        public void done(Object o, BmobException e) {
-                            if (o != null) {
-                                Toast.makeText(RegisterActivity.this, "用户注册成功", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(RegisterActivity.this, "用户注册失败", Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-                    });
-                }
+                register();
                 break;
         }
 
+    }
+
+    private void register() {
+        BmobUser bmobUser = new BmobUser();
+        String userName = mUserName.getText().toString();
+        String password = mUserPwd.getText().toString();
+        if (TextUtils.isEmpty(userName) || TextUtils.isEmpty(password)) {
+            Toast.makeText(this, "用户名或者密码不能为空", Toast.LENGTH_SHORT).show();
+        } else {
+            bmobUser.setUsername(userName);
+            bmobUser.setPassword(password);
+            bmobUser.signUp(new SaveListener<Object>() {
+                @Override
+                public void done(Object o, BmobException e) {
+                    if (o != null) {
+                        Toast.makeText(RegisterActivity.this, "用户注册成功", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(RegisterActivity.this, "用户注册失败", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            });
+        }
     }
 }

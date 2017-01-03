@@ -5,6 +5,10 @@ import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 import android.view.View;
 
+import com.fuyuan.marketmanage.config.MyConfig;
+
+import cn.bmob.v3.Bmob;
+
 /**
  * Created by xin on 2016/12/29.
  */
@@ -13,7 +17,7 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Bmob.initialize(this, MyConfig.APP_ID);
         initView();
         initListener();
         initData();
