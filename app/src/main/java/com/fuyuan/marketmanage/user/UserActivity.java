@@ -3,6 +3,7 @@ package com.fuyuan.marketmanage.user;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.fuyuan.marketmanage.R;
@@ -25,6 +26,8 @@ public class UserActivity extends BaseActivity {
     @Override
     public void initView() {
         setContentView(R.layout.activity_user);
+        //设置键盘模式
+        getWindow().setSoftInputMode( WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         tableLayout = (TabLayout) findViewById(R.id.tabs);
         mTitle = (TextView) findViewById(R.id.tv_title);

@@ -1,86 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorWhite"
             android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/shape_rectangle_btn"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:gravity="center"
-            android:text="删除用户"/>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/colorAccent"
-        />
-
-        <EditText
-            android:id="@+id/et_delUser"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:gravity="center_vertical"
-            android:hint="请输入需要删除的用户名"/>
-
-        <Button
-            android:id="@+id/btn_delUser"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="删除用户"/>
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/shape_rectangle_btn"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tv_title"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:gravity="center"
-            android:text="添加新用户"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_rectangle_btn"
+            android:orientation="vertical">
 
-        <View
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:text="修改账号密码"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorAccent"
+            />
+
+            <EditText
+                android:id="@+id/et_newPwd"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:hint="请输入新密码"/>
+            <EditText
+                android:id="@+id/et_oldPwd"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:hint="请输入旧密码"/>
+
+            <Button
+                android:id="@+id/btn_updateUser"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="修改密码"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="@color/colorAccent"
-        />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_rectangle_btn"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/et_addUsername"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:text="删除用户"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorAccent"
+            />
+
+            <EditText
+                android:id="@+id/et_delUser"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:hint="请输入需要删除的用户名"/>
+
+            <Button
+                android:id="@+id/btn_delUser"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="删除用户"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:gravity="center_vertical"
-            android:hint="请输入用户名"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_rectangle_btn"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/et_addUserpwd"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:gravity="center_vertical"
-            android:hint="请输入密码"/>
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center"
+                android:text="添加新用户"/>
 
-        <Button
-            android:id="@+id/btn_adduser"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="添加用户"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorAccent"
+            />
 
+            <EditText
+                android:id="@+id/et_addUsername"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:hint="请输入用户名"/>
+
+            <EditText
+                android:id="@+id/et_addUserpwd"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:hint="请输入密码"/>
+
+            <Button
+                android:id="@+id/btn_adduser"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="添加用户"/>
+
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

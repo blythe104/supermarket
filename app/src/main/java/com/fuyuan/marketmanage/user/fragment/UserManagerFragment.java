@@ -1,7 +1,9 @@
 package com.fuyuan.marketmanage.user.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +13,14 @@ import android.widget.Toast;
 
 import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.base.BaseFragment;
+import com.fuyuan.marketmanage.login.LoginActivity;
 
+import java.util.List;
+
+import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
 
@@ -28,6 +35,11 @@ public class UserManagerFragment extends BaseFragment implements View.OnClickLis
     private Button mBtnAdd;
     private EditText mEtDelUser;
     private Button mBtnDelUser;
+    private String objectId;
+    private String userName;
+    private EditText mEtNewPwd;
+    private EditText mEtOldPwd;
+    private Button mBtnUpdate;
 
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -37,6 +49,10 @@ public class UserManagerFragment extends BaseFragment implements View.OnClickLis
         mBtnAdd = (Button) view.findViewById(R.id.btn_adduser);
         mEtDelUser = (EditText) view.findViewById(R.id.et_delUser);
         mBtnDelUser = (Button) view.findViewById(R.id.btn_delUser);
+        mEtNewPwd = (EditText) view.findViewById(R.id.et_newPwd);
+        mEtOldPwd = (EditText) view.findViewById(R.id.et_oldPwd);
+        mBtnUpdate = (Button) view.findViewById(R.id.btn_updateUser);
+
         setListener();
         return view;
     }
@@ -44,6 +60,7 @@ public class UserManagerFragment extends BaseFragment implements View.OnClickLis
     private void setListener() {
         mBtnAdd.setOnClickListener(this);
         mBtnDelUser.setOnClickListener(this);
+        mBtnUpdate.setOnClickListener(this);
     }
 
 
@@ -54,30 +71,85 @@ public class UserManagerFragment extends BaseFragment implements View.OnClickLis
                 register();
                 break;
             case R.id.btn_delUser:
-                delUser();
+                userName = mEtDelUser.getText().toString();
+                if (TextUtils.isEmpty(userName)) {
+                    Toast.makeText(mActivity, "删除时用户名不能为空", Toast.LENGTH_SHORT).show();
+                } else {
+                    getObjectId(userName);
+                }
+                break;
+            case R.id.btn_updateUser:
+                String oldPwd = mEtOldPwd.getText().toString();
+                String newPwd = mEtNewPwd.getText().toString();
+                if (TextUtils.isEmpty(oldPwd) || TextUtils.isEmpty(newPwd)) {
+                    Toast.makeText(mActivity, "新密码或者旧密码不能为空", Toast.LENGTH_SHORT).show();
+                } else {
+                    updatePwd(oldPwd, newPwd);
+                }
+
                 break;
         }
 
     }
 
-    private void delUser() {
-        String userName = mEtDelUser.getText().toString();
-        if (TextUtils.isEmpty(userName)) {
-            Toast.makeText(mActivity, "删除时用户名不能为空", Toast.LENGTH_SHORT).show();
-        } else {
-            BmobUser del = new BmobUser();
-            del.setUsername(userName);
-            del.delete(new UpdateListener() {
-                @Override
-                public void done(BmobException e) {
-                    if (e == null) {
-                        Toast.makeText(mActivity, "用户删除成功"+e.toString(), Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(mActivity, "用户删除失败"+e.toString(), Toast.LENGTH_SHORT).show();
-                    }
+    /**
+     * 更新密码
+     *
+     * @param oldPwd
+     * @param newPwd
+     */
+    private void updatePwd(String oldPwd, String newPwd) {
+        BmobUser.updateCurrentUserPassword(oldPwd, newPwd, new UpdateListener() {
+            @Override
+            public void done(BmobException e) {
+                if (e == null) {
+                    Toast.makeText(mActivity, "密码修改成功，请重新登录", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
+                } else {
+                    Toast.makeText(mActivity, "失败" + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
-            });
-        }
+            }
+        });
+    }
+
+    private void delUser(String userName) {
+        BmobUser del = new BmobUser();
+        del.setUsername(userName);
+        del.delete(objectId, new UpdateListener() {
+            @Override
+            public void done(BmobException e) {
+                if (e == null) {
+                    Toast.makeText(mActivity, "用户删除成功" + e.toString(), Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(mActivity, "用户删除失败" + e.toString(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    /**
+     * 获取objectId
+     *
+     * @param userName
+     * @return
+     */
+    private String getObjectId(final String userName) {
+        BmobQuery<BmobUser> query = new BmobQuery<BmobUser>();
+        query.addWhereEqualTo("username", userName);
+        query.findObjects(new FindListener<BmobUser>() {
+            @Override
+            public void done(List<BmobUser> list, BmobException e) {
+                if (e == null) {
+                    BmobUser user = list.get(0);
+                    objectId = user.getObjectId();
+                    //删除用户 无权删除用户数据
+                    delUser(userName);
+                } else {
+                    Log.e("*e", "获取objectId错误: " + e.toString());
+                }
+            }
+        });
+        return objectId;
     }
 
 
