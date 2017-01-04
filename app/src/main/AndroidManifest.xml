@@ -36,6 +36,8 @@
         </activity>
         <activity android:name=".goods.GoodsActivity">
         </activity>
+        <activity android:name=".supply.SupplyActivity">
+        </activity>
     </application>
 
 </manifest>
