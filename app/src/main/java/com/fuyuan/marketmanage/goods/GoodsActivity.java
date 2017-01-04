@@ -10,8 +10,8 @@ import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.base.BaseActivity;
 import com.fuyuan.marketmanage.base.BaseFragment;
 import com.fuyuan.marketmanage.goods.fragment.GoodsFragment;
+import com.fuyuan.marketmanage.goods.fragment.GoodsManagerFragment;
 import com.fuyuan.marketmanage.user.adapter.FragmentAdapter;
-import com.fuyuan.marketmanage.user.fragment.UserManagerFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,10 +44,10 @@ public class GoodsActivity extends BaseActivity {
         mTvTitle.setText("商品管理");
         fragments = new ArrayList<>();
         fragments.add(new GoodsFragment());
-        fragments.add(new UserManagerFragment());
+        fragments.add(new GoodsManagerFragment());
         List<String> tabList = new ArrayList<String>();
         tabList.add("商品列表");
-        tabList.add("商品操作");
+        tabList.add("商品添加");
         FragmentAdapter fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(), fragments, tabList);
         mViewPager.setAdapter(fragmentAdapter);
         tableLayout.setupWithViewPager(mViewPager);

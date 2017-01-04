@@ -2,11 +2,13 @@ package com.fuyuan.marketmanage.bean;
 
 import java.io.Serializable;
 
+import cn.bmob.v3.BmobObject;
+
 /**
  * Created by xin on 2017/1/4.
  */
 
-public class GoodsBean implements Serializable {
+public class GoodsBean extends BmobObject implements Serializable {
     //商品名称
     private String goodsName;
     //数量
