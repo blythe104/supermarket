@@ -66,6 +66,7 @@ public class UserListFragment extends BaseFragment {
                     bmobUserList = (ArrayList<BmobUser>) list;
                     userAdapter = new UserAdapter(mActivity, bmobUserList);
                     mLlUser.setAdapter(userAdapter);
+                    userAdapter.notifyDataSetChanged();
 
                 } else {
                     Toast.makeText(mActivity, "没有用户信息", Toast.LENGTH_SHORT).show();

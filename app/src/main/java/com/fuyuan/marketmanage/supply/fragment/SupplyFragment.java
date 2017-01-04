@@ -64,6 +64,7 @@ public class SupplyFragment extends BaseFragment implements View.OnClickListener
                     supplyList = (ArrayList<Supply>) list;
                     supplyAdapter = new SupplyAdapter(mActivity, supplyList);
                     mLlSupply.setAdapter(supplyAdapter);
+                    supplyAdapter.notifyDataSetChanged();
 
                 } else {
                     Toast.makeText(mActivity, "没有供货商信息", Toast.LENGTH_SHORT).show();

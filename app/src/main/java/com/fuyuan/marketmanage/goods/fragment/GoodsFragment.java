@@ -64,6 +64,7 @@ public class GoodsFragment extends BaseFragment implements View.OnClickListener 
                     bmobUserList = (ArrayList<GoodsBean>) list;
                     goodsAdapter = new GoodsAdapter(mActivity, bmobUserList);
                     mLlGoods.setAdapter(goodsAdapter);
+                    goodsAdapter.notifyDataSetChanged();
 
                 } else {
                     Toast.makeText(mActivity, "没有商品信息", Toast.LENGTH_SHORT).show();

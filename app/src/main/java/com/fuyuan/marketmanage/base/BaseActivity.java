@@ -6,6 +6,7 @@ import android.view.KeyEvent;
 import android.view.View;
 
 import com.fuyuan.marketmanage.config.MyConfig;
+import com.fuyuan.marketmanage.widget.exception.repeatFlagException;
 
 import cn.bmob.v3.Bmob;
 
@@ -20,14 +21,18 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
         Bmob.initialize(this, MyConfig.APP_ID);
         initView();
         initListener();
-        initData();
+        try {
+            initData();
+        } catch (repeatFlagException e) {
+            e.printStackTrace();
+        }
     }
 
     public abstract void initView();
 
     public abstract void initListener();
 
-    public abstract void initData();
+    public abstract void initData() throws repeatFlagException;
 
     public abstract void processClick(View v);
 

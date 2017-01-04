@@ -38,6 +38,10 @@
         </activity>
         <activity android:name=".supply.SupplyActivity">
         </activity>
+        <activity android:name=".sys.SysActivity">
+        </activity>
+        <activity android:name=".money.MoneyActivity">
+        </activity>
     </application>
 
 </manifest>

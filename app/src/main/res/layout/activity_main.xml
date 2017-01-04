@@ -43,5 +43,11 @@
             android:layout_columnWeight="1"
             android:text="系统管理"/>
 
+    <Button android:id="@+id/btn_money"
+            style="@style/mainStyle"
+            android:layout_width="0dp"
+            android:layout_columnWeight="1"
+            android:text="收取货款"/>
+
 
 </GridLayout>

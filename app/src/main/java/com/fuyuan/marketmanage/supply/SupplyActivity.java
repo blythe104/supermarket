@@ -26,8 +26,7 @@ public class SupplyActivity extends BaseActivity {
     public void initView() {
         setContentView(R.layout.activity_supply);
         mTvTitle = (TextView) findViewById(R.id.tv_title);
-        //设置键盘模式
-        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         tableLayout = (TabLayout) findViewById(R.id.tabs);
 

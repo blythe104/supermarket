@@ -7,7 +7,9 @@ import android.widget.Toast;
 
 import com.fuyuan.marketmanage.base.BaseActivity;
 import com.fuyuan.marketmanage.goods.GoodsActivity;
+import com.fuyuan.marketmanage.money.MoneyActivity;
 import com.fuyuan.marketmanage.supply.SupplyActivity;
+import com.fuyuan.marketmanage.sys.SysActivity;
 import com.fuyuan.marketmanage.user.UserActivity;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -16,6 +18,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button mBtnUser;
     private Button mBtnGoods;
     private Button mBtnSupply;
+    private Button mBtnSys;
+    private Button mBtnMoney;
 
     @Override
     public void initView() {
@@ -23,6 +27,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mBtnUser = (Button) findViewById(R.id.btn_user);
         mBtnGoods = (Button) findViewById(R.id.btn_goods);
         mBtnSupply = (Button) findViewById(R.id.btn_supply);
+        mBtnSys = (Button) findViewById(R.id.btn_sys);
+        mBtnMoney = (Button) findViewById(R.id.btn_money);
+
 
     }
 
@@ -31,6 +38,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mBtnUser.setOnClickListener(this);
         mBtnGoods.setOnClickListener(this);
         mBtnSupply.setOnClickListener(this);
+        mBtnSys.setOnClickListener(this);
+        mBtnMoney.setOnClickListener(this);
     }
 
     @Override
@@ -48,6 +57,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.btn_supply:
                 startActivity(new Intent(MainActivity.this, SupplyActivity.class));
+                break;
+            case R.id.btn_sys:
+                startActivity(new Intent(MainActivity.this, SysActivity.class));
+                break;
+            case R.id.btn_money:
+                startActivity(new Intent(MainActivity.this, MoneyActivity.class));
                 break;
         }
 
