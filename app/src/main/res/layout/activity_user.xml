@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.fuyuan.marketmanage.user.UserActivity">
+    tools:context=".moudles.user.UserActivity">
 
     <include layout="@layout/login_title_bar"/>
 

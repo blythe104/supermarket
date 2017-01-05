@@ -62,7 +62,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 startActivity(new Intent(MainActivity.this, SysActivity.class));
                 break;
             case R.id.btn_money:
-                startActivity(new Intent(MainActivity.this, MoneyActivity.class));
+                startActivity(new Intent(MainActivity.this,MoneyActivity.class));
                 break;
         }
 

@@ -3,7 +3,6 @@ package com.fuyuan.marketmanage.supply;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.fuyuan.marketmanage.R;
@@ -46,7 +45,7 @@ public class SupplyActivity extends BaseActivity {
         List<String> tabList = new ArrayList<String>();
         tabList.add("供货商列表");
         tabList.add("供货商添加");
-        FragmentAdapter fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(), fragments, tabList);
+       FragmentAdapter fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(), fragments, tabList);
         mViewPager.setAdapter(fragmentAdapter);
         tableLayout.setupWithViewPager(mViewPager);
         tableLayout.setTabMode(TabLayout.MODE_FIXED);

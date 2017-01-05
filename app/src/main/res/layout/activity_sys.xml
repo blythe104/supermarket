@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.fuyuan.marketmanage.sys.SysActivity">
+    tools:context=".moudles.sys.SysActivity">
 
     <com.fuyuan.marketmanage.widget.ui.CustomMenuView
         android:id="@+id/menu_view"
