@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.fuyuan.marketmanage.base.BaseActivity;
 import com.fuyuan.marketmanage.goods.GoodsActivity;
 import com.fuyuan.marketmanage.money.MoneyActivity;
+import com.fuyuan.marketmanage.stock.StockActivity;
 import com.fuyuan.marketmanage.supply.SupplyActivity;
 import com.fuyuan.marketmanage.sys.SysActivity;
 import com.fuyuan.marketmanage.user.UserActivity;
@@ -20,6 +21,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button mBtnSupply;
     private Button mBtnSys;
     private Button mBtnMoney;
+    private Button mBtnStock;
 
     @Override
     public void initView() {
@@ -29,6 +31,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mBtnSupply = (Button) findViewById(R.id.btn_supply);
         mBtnSys = (Button) findViewById(R.id.btn_sys);
         mBtnMoney = (Button) findViewById(R.id.btn_money);
+        mBtnStock = (Button) findViewById(R.id.btn_stock);
 
 
     }
@@ -40,6 +43,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mBtnSupply.setOnClickListener(this);
         mBtnSys.setOnClickListener(this);
         mBtnMoney.setOnClickListener(this);
+        mBtnStock.setOnClickListener(this);
     }
 
     @Override
@@ -63,6 +67,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
             case R.id.btn_money:
                 startActivity(new Intent(MainActivity.this,MoneyActivity.class));
+                break;
+            case R.id.btn_stock:
+                startActivity(new Intent(MainActivity.this,StockActivity.class));
                 break;
         }
 

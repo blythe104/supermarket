@@ -21,28 +21,28 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".moudles.login.LoginActivity">
+        <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".moudles.MainActivity">
+        <activity android:name="MainActivity">
         </activity>
-        <activity android:name=".moudles.register.RegisterActivity">
+        <activity android:name=".register.RegisterActivity">
         </activity>
-        <activity android:name=".moudles.user.UserActivity">
+        <activity android:name=".user.UserActivity">
         </activity>
-        <activity android:name=".moudles.goods.GoodsActivity">
+        <activity android:name=".goods.GoodsActivity">
         </activity>
-        <activity android:name=".moudles.supply.SupplyActivity">
+        <activity android:name=".supply.SupplyActivity">
         </activity>
-        <activity android:name=".moudles.sys.SysActivity">
+        <activity android:name=".sys.SysActivity">
         </activity>
-        <activity android:name=".moudles.money.MoneyActivity">
+        <activity android:name=".money.MoneyActivity">
         </activity>
-        <activity android:name=".moudles.stock.StockActivity">
+        <activity android:name=".stock.StockActivity">
         </activity>
     </application>
 
