@@ -14,6 +14,14 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tv_qrscan"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:background="@color/theme_gray"
+            android:text="识别二维码"/>
+
+        <TextView
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="45dp"
@@ -25,6 +33,13 @@
             android:layout_height="1px"
             android:background="@color/colorAccent"
         />
+
+        <EditText
+            android:id="@+id/et_qrcode"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center_vertical"
+            android:hint="商品二维码"/>
 
         <EditText
             android:id="@+id/et_goods"

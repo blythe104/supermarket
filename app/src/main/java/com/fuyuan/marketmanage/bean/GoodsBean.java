@@ -9,6 +9,7 @@ import cn.bmob.v3.BmobObject;
  */
 
 public class GoodsBean extends BmobObject implements Serializable {
+    private String qrcode;
     //商品名称
     private String goodsName;
     //数量
@@ -21,6 +22,14 @@ public class GoodsBean extends BmobObject implements Serializable {
     private String desc;
     //供货商Id
     private String supplyId;
+
+    public String getQrcode() {
+        return qrcode;
+    }
+
+    public void setQrcode(String qrcode) {
+        this.qrcode = qrcode;
+    }
 
     public String getGoodsName() {
         return goodsName;

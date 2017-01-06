@@ -14,4 +14,7 @@
     <color name="colorBlack">#000000</color>
     <color name="colorLightBlack">#424242</color>
     <color name="themeTextBlack">#434a54</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="result_view">#b0000000</color>
 </resources>
