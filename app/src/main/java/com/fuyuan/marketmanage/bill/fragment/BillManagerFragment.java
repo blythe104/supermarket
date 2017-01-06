@@ -74,7 +74,7 @@ public class BillManagerFragment extends BaseFragment implements View.OnClickLis
             Toast.makeText(mActivity, "账单收入金额不能为空", Toast.LENGTH_SHORT).show();
         } else {
             goodsBean.setBilldate(date);
-            goodsBean.setIncome(income);
+            goodsBean.setIncome(Integer.parseInt(income));
             goodsBean.setPay(pay);
             goodsBean.setPaydesc(desc);
             goodsBean.save(new SaveListener<String>() {

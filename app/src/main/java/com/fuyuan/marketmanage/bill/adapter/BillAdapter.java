@@ -61,7 +61,7 @@ public class BillAdapter extends BaseAdapter {
         } else
             vh = (viewHolder) convertView.getTag();
         vh.tv_date.setText(datalist.get(i).getBilldate());
-        vh.tv_income.setText(datalist.get(i).getIncome());
+        vh.tv_income.setText(datalist.get(i).getIncome()+"");
         vh.tv_pay.setText(datalist.get(i).getPay());
 
         vh.btn_Del.setOnClickListener(new View.OnClickListener() {

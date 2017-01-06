@@ -10,7 +10,7 @@ import cn.bmob.v3.BmobObject;
 
 public class Bill extends BmobObject implements Serializable {
     private String billdate;
-    private String income;
+    private Integer income;
     private String pay;
     private String paydesc;
 
@@ -22,11 +22,11 @@ public class Bill extends BmobObject implements Serializable {
         this.billdate = billdate;
     }
 
-    public String getIncome() {
+    public Integer getIncome() {
         return income;
     }
 
-    public void setIncome(String income) {
+    public void setIncome(Integer income) {
         this.income = income;
     }
 
