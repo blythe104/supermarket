@@ -12,7 +12,7 @@
             android:layout_columnWeight="1"
             android:text="用户管理"/>
 
-    <Button android:id="@+id/btn_menu"
+    <Button android:id="@+id/btn_bill"
             style="@style/mainStyle"
             android:layout_columnWeight="1"
             android:text="账单管理"/>

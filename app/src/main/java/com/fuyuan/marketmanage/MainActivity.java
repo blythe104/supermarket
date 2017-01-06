@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.fuyuan.marketmanage.base.BaseActivity;
+import com.fuyuan.marketmanage.bill.BillActivity;
 import com.fuyuan.marketmanage.goods.GoodsActivity;
 import com.fuyuan.marketmanage.money.MoneyActivity;
 import com.fuyuan.marketmanage.stock.StockActivity;
@@ -22,6 +23,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button mBtnSys;
     private Button mBtnMoney;
     private Button mBtnStock;
+    private Button mBtnBill;
 
     @Override
     public void initView() {
@@ -32,6 +34,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mBtnSys = (Button) findViewById(R.id.btn_sys);
         mBtnMoney = (Button) findViewById(R.id.btn_money);
         mBtnStock = (Button) findViewById(R.id.btn_stock);
+        mBtnBill = (Button) findViewById(R.id.btn_bill);
 
 
     }
@@ -44,6 +47,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         mBtnSys.setOnClickListener(this);
         mBtnMoney.setOnClickListener(this);
         mBtnStock.setOnClickListener(this);
+        mBtnBill.setOnClickListener(this);
     }
 
     @Override
@@ -66,10 +70,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 startActivity(new Intent(MainActivity.this, SysActivity.class));
                 break;
             case R.id.btn_money:
-                startActivity(new Intent(MainActivity.this,MoneyActivity.class));
+                startActivity(new Intent(MainActivity.this, MoneyActivity.class));
                 break;
             case R.id.btn_stock:
-                startActivity(new Intent(MainActivity.this,StockActivity.class));
+                startActivity(new Intent(MainActivity.this, StockActivity.class));
+                break;
+            case R.id.btn_bill:
+                startActivity(new Intent(MainActivity.this, BillActivity.class));
                 break;
         }
 
