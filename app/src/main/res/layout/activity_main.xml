@@ -42,5 +42,10 @@
             android:layout_columnWeight="1"
             android:text="收取货款"/>
 
+    <Button android:id="@+id/btn_saled"
+            style="@style/mainStyle"
+            android:layout_columnWeight="1"
+            android:text="售货记录"/>
+
 
 </GridLayout>

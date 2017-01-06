@@ -52,6 +52,8 @@
         <activity android:name=".codescan.MipcaActivityCapture"/>
         <activity android:name=".bill.BillActivity">
         </activity>
+        <activity android:name=".sale.SaleActivity">
+        </activity>
     </application>
 
 </manifest>
