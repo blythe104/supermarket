@@ -17,8 +17,8 @@
             android:id="@+id/tv_qrscan"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:gravity="center"
             android:background="@color/theme_gray"
+            android:gravity="center"
             android:text="识别二维码"/>
 
         <TextView
@@ -81,7 +81,7 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:gravity="center_vertical"
-            android:hint="请输入商品介绍"/>
+            android:hint="请输入商品介绍,存放位置"/>
 
         <Button
             android:id="@+id/btn_addgoods"

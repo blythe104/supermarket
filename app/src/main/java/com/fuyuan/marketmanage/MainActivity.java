@@ -28,7 +28,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button mBtnBill;
     private Button mBtnSale;
     private long begintime = 0;
-    private long firstTime = 0;
 
     @Override
     public void initView() {
