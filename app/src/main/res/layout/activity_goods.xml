@@ -6,7 +6,6 @@
     android:orientation="vertical"
 >
 
-    <!--<include layout="@layout/login_title_bar"/>-->
     <com.fuyuan.marketmanage.widget.title.CustomTitle
         android:id="@+id/titlebar"
         android:layout_width="match_parent"

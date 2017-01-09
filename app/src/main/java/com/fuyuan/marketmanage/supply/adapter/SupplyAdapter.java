@@ -2,7 +2,6 @@ package com.fuyuan.marketmanage.supply.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,7 @@ import android.widget.Toast;
 
 import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.bean.Supply;
+import com.fuyuan.marketmanage.supply.SupplyDescActivity;
 
 import java.util.List;
 
@@ -69,8 +69,12 @@ public class SupplyAdapter extends BaseAdapter {
         vh.btn_cal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentPhone = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + datalist.get(i).getPhone()));
-                context.startActivity(intentPhone);
+                Intent intentDetail = new Intent(context, SupplyDescActivity.class);
+                intentDetail.putExtra("objectId", datalist.get(i).getObjectId());
+                context.startActivity(intentDetail);
+                //                Intent intentPhone = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + datalist.get
+                // (i).getPhone()));
+                //                context.startActivity(intentPhone);
 
             }
         });

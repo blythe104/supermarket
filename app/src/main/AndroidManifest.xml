@@ -54,6 +54,8 @@
         </activity>
         <activity android:name=".sale.SaleActivity">
         </activity>
+        <activity android:name=".supply.SupplyDescActivity">
+        </activity>
     </application>
 
 </manifest>
