@@ -26,7 +26,7 @@ public class MoneyActivity extends BaseActivity {
 
     @Override
     public void initData() throws repeatFlagException {
-
+        mTitle.setTitle("收款二维码");
     }
 
     @Override
