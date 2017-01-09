@@ -59,6 +59,7 @@ public class LoginActivity extends BaseActivity {
                             if (o != null) {
                                 toast("登录成功");
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                finish();
                             } else {
                                 toast("登录失败");
                             }

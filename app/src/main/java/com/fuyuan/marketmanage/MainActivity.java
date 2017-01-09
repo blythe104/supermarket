@@ -1,6 +1,7 @@
 package com.fuyuan.marketmanage;
 
 import android.content.Intent;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -26,6 +27,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private Button mBtnStock;
     private Button mBtnBill;
     private Button mBtnSale;
+    private long begintime = 0;
+    private long firstTime = 0;
 
     @Override
     public void initView() {
@@ -89,8 +92,24 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
-
     private void toast(String s) {
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_BACK) {
+            if (System.currentTimeMillis() - begintime > 2000) {
+                Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                begintime = System.currentTimeMillis();
+            } else {
+                finish();
+                System.exit(0);
+            }
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+
 }
