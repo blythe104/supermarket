@@ -3,7 +3,6 @@ package com.fuyuan.marketmanage.supply;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.TextView;
 
 import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.base.BaseActivity;
@@ -11,21 +10,21 @@ import com.fuyuan.marketmanage.base.BaseFragment;
 import com.fuyuan.marketmanage.supply.fragment.SupplyFragment;
 import com.fuyuan.marketmanage.supply.fragment.SupplyManagerFragment;
 import com.fuyuan.marketmanage.user.adapter.FragmentAdapter;
+import com.fuyuan.marketmanage.widget.title.CustomTitle;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SupplyActivity extends BaseActivity {
-    private TextView mTvTitle;
     private ViewPager mViewPager;
     private TabLayout tableLayout;
     private List<BaseFragment> fragments;
+    private CustomTitle mTitle;
 
     @Override
     public void initView() {
         setContentView(R.layout.activity_supply);
-        mTvTitle = (TextView) findViewById(R.id.tv_title);
-
+        mTitle = (CustomTitle) findViewById(R.id.titlebar);
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         tableLayout = (TabLayout) findViewById(R.id.tabs);
 
@@ -38,7 +37,7 @@ public class SupplyActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        mTvTitle.setText("供货商管理");
+        mTitle.setTitle("供货商管理");
         fragments = new ArrayList<>();
         fragments.add(new SupplyFragment());
         fragments.add(new SupplyManagerFragment());

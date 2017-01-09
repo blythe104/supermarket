@@ -24,19 +24,21 @@
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:layout_weight="1"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:text="HELLO"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/mid_textsize"/>
 
     <TextView
         android:id="@+id/tv_title_tag"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
-        android:layout_weight="1"
         android:gravity="right|center_vertical"
+        android:visibility="gone"
         android:textColor="@color/colorWhite"
         android:textSize="@dimen/login_input_textsize"/>
 

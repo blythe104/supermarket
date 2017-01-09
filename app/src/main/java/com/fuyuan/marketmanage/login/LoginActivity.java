@@ -5,13 +5,13 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fuyuan.marketmanage.MainActivity;
 import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.base.BaseActivity;
 import com.fuyuan.marketmanage.register.RegisterActivity;
+import com.fuyuan.marketmanage.widget.title.CustomTitle;
 
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
@@ -24,7 +24,7 @@ public class LoginActivity extends BaseActivity {
     private EditText mUserName;
     private EditText mUserPwd;
     private Button mBtnLogin;
-    private TextView mTitleTag;
+    private CustomTitle mTitle;
 
     @Override
     public void initView() {
@@ -33,14 +33,14 @@ public class LoginActivity extends BaseActivity {
         mUserName = (EditText) findViewById(R.id.et_username);
         mUserPwd = (EditText) findViewById(R.id.et_password);
         mBtnLogin = (Button) findViewById(R.id.btn_login);
-        mTitleTag = (TextView) findViewById(R.id.tv_title_tag);
+        mTitle = (CustomTitle) findViewById(R.id.titlebar);
 
 
     }
 
     @Override
     public void initListener() {
-        mTitleTag.setOnClickListener(this);
+        mTitle.setTitle("","快速注册",this);
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,7 +75,6 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void initData() {
-        mTitleTag.setText("快速注册");
 
     }
 

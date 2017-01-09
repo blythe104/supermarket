@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.base.BaseActivity;
+import com.fuyuan.marketmanage.widget.title.CustomTitle;
 
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
@@ -19,6 +20,7 @@ public class RegisterActivity extends BaseActivity {
     private EditText mUserName;
     private EditText mUserPwd;
     private Button mBtnRegister;
+    private CustomTitle mTitle;
 
     @Override
     public void initView() {
@@ -26,11 +28,12 @@ public class RegisterActivity extends BaseActivity {
         mUserName = (EditText) findViewById(R.id.et_username);
         mUserPwd = (EditText) findViewById(R.id.et_password);
         mBtnRegister = (Button) findViewById(R.id.btn_register);
+        mTitle = (CustomTitle) findViewById(R.id.titlebar);
     }
 
     @Override
     public void initData() {
-
+        mTitle.setTitle("注册");
     }
 
     @Override

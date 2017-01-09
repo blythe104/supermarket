@@ -8,17 +8,20 @@ import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.base.BaseActivity;
 import com.fuyuan.marketmanage.login.LoginActivity;
 import com.fuyuan.marketmanage.widget.exception.repeatFlagException;
+import com.fuyuan.marketmanage.widget.title.CustomTitle;
 import com.fuyuan.marketmanage.widget.ui.CustomMenuView;
 import com.fuyuan.marketmanage.widget.ui.ItemDataBean;
 
 public class SysActivity extends BaseActivity {
 
     private CustomMenuView menuView;
+    private CustomTitle mTitle;
 
     @Override
     public void initView() {
         setContentView(R.layout.activity_sys);
         menuView = (CustomMenuView) findViewById(R.id.menu_view);
+        mTitle = (CustomTitle) findViewById(R.id.titlebar);
 
 
     }
@@ -30,6 +33,7 @@ public class SysActivity extends BaseActivity {
 
     @Override
     public void initData() throws repeatFlagException {
+        mTitle.setTitle("系统管理");
         initMenuData();
     }
 

@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -46,7 +45,7 @@ public class UserManagerFragment extends BaseFragment implements View.OnClickLis
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.manager_fragment, null);
         //设置键盘模式
-        mActivity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+//        mActivity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         mEtaddName = (EditText) view.findViewById(R.id.et_addUsername);
         mEtAddPwd = (EditText) view.findViewById(R.id.et_addUserpwd);
         mBtnAdd = (Button) view.findViewById(R.id.btn_adduser);

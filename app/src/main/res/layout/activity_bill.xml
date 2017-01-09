@@ -6,8 +6,11 @@
     android:orientation="vertical"
 >
 
-    <include layout="@layout/login_title_bar"/>
-
+    <!--<include layout="@layout/login_title_bar"/>-->
+    <com.fuyuan.marketmanage.widget.title.CustomTitle
+        android:id="@+id/titlebar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"/>
     <android.support.design.widget.TabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
