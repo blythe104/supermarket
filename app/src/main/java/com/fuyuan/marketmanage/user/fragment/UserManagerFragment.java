@@ -9,11 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.base.BaseFragment;
 import com.fuyuan.marketmanage.login.LoginActivity;
+import com.fuyuan.marketmanage.utils.ToastUtils;
 
 import java.util.List;
 
@@ -45,7 +45,7 @@ public class UserManagerFragment extends BaseFragment implements View.OnClickLis
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.manager_fragment, null);
         //设置键盘模式
-//        mActivity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        //        mActivity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         mEtaddName = (EditText) view.findViewById(R.id.et_addUsername);
         mEtAddPwd = (EditText) view.findViewById(R.id.et_addUserpwd);
         mBtnAdd = (Button) view.findViewById(R.id.btn_adduser);
@@ -75,7 +75,7 @@ public class UserManagerFragment extends BaseFragment implements View.OnClickLis
             case R.id.btn_delUser:
                 userName = mEtDelUser.getText().toString();
                 if (TextUtils.isEmpty(userName)) {
-                    Toast.makeText(mActivity, "删除时用户名不能为空", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "删除时用户名不能为空");
                 } else {
                     getObjectId(userName);
                 }
@@ -84,7 +84,7 @@ public class UserManagerFragment extends BaseFragment implements View.OnClickLis
                 String oldPwd = mEtOldPwd.getText().toString();
                 String newPwd = mEtNewPwd.getText().toString();
                 if (TextUtils.isEmpty(oldPwd) || TextUtils.isEmpty(newPwd)) {
-                    Toast.makeText(mActivity, "新密码或者旧密码不能为空", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "新密码或者旧密码不能为空");
                 } else {
                     updatePwd(oldPwd, newPwd);
                 }
@@ -105,10 +105,10 @@ public class UserManagerFragment extends BaseFragment implements View.OnClickLis
             @Override
             public void done(BmobException e) {
                 if (e == null) {
-                    Toast.makeText(mActivity, "密码修改成功，请重新登录", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "密码修改成功，请重新登录");
                     startActivity(new Intent(getActivity(), LoginActivity.class));
                 } else {
-                    Toast.makeText(mActivity, "失败" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "失败" + e.getMessage());
                 }
             }
         });
@@ -121,9 +121,9 @@ public class UserManagerFragment extends BaseFragment implements View.OnClickLis
             @Override
             public void done(BmobException e) {
                 if (e == null) {
-                    Toast.makeText(mActivity, "用户删除成功" + e.toString(), Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "用户删除成功" + e.toString());
                 } else {
-                    Toast.makeText(mActivity, "用户删除失败" + e.toString(), Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "用户删除失败" + e.toString());
                 }
             }
         });
@@ -160,7 +160,7 @@ public class UserManagerFragment extends BaseFragment implements View.OnClickLis
         String userName = mEtaddName.getText().toString();
         String password = mEtAddPwd.getText().toString();
         if (TextUtils.isEmpty(userName) || TextUtils.isEmpty(password)) {
-            Toast.makeText(mActivity, "用户名或者密码不能为空", Toast.LENGTH_SHORT).show();
+            ToastUtils.toast(mActivity, "用户名或者密码不能为空");
         } else {
             bmobUser.setUsername(userName);
             bmobUser.setPassword(password);
@@ -168,9 +168,9 @@ public class UserManagerFragment extends BaseFragment implements View.OnClickLis
                 @Override
                 public void done(Object o, BmobException e) {
                     if (o != null) {
-                        Toast.makeText(mActivity, "用户添加成功", Toast.LENGTH_SHORT).show();
+                        ToastUtils.toast(mActivity, "用户添加成功");
                     } else {
-                        Toast.makeText(mActivity, "用户添加失败", Toast.LENGTH_SHORT).show();
+                        ToastUtils.toast(mActivity, "用户添加失败");
                     }
 
                 }

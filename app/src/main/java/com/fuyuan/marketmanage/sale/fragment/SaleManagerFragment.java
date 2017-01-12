@@ -9,12 +9,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.base.BaseFragment;
 import com.fuyuan.marketmanage.codescan.MipcaActivityCapture;
 import com.fuyuan.marketmanage.sale.bean.Sales;
+import com.fuyuan.marketmanage.utils.ToastUtils;
 
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
@@ -37,8 +37,6 @@ public class SaleManagerFragment extends BaseFragment implements View.OnClickLis
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.sales_fragment, null);
-        //设置键盘模式
-//        mActivity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         //添加商品
         mEtQrcode = (EditText) view.findViewById(R.id.et_qrcode);
         mEtGoods = (EditText) view.findViewById(R.id.et_goods);
@@ -82,7 +80,7 @@ public class SaleManagerFragment extends BaseFragment implements View.OnClickLis
         String goodsNum = mEtNum.getText().toString();
 
         if (TextUtils.isEmpty(goods)) {
-            Toast.makeText(mActivity, "商品名称不能为空", Toast.LENGTH_SHORT).show();
+            ToastUtils.toast(mActivity, "商品名称不能为空");
         } else {
             goodsBean.setQrcode(qrcode);
             goodsBean.setGoodname(goods);
@@ -91,9 +89,9 @@ public class SaleManagerFragment extends BaseFragment implements View.OnClickLis
                 @Override
                 public void done(String s, BmobException e) {
                     if (e == null) {
-                        Toast.makeText(mActivity, "创建数据成功", Toast.LENGTH_SHORT).show();
+                        ToastUtils.toast(mActivity, "创建数据成功");
                     } else {
-                        Toast.makeText(mActivity, "创建数据失败" + e.toString(), Toast.LENGTH_SHORT).show();
+                        ToastUtils.toast(mActivity, "创建数据失败");
                     }
 
                 }

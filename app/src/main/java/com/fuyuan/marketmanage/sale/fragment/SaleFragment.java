@@ -9,13 +9,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.base.BaseFragment;
 import com.fuyuan.marketmanage.codescan.MipcaActivityCapture;
 import com.fuyuan.marketmanage.sale.adapter.SalesAdapter;
 import com.fuyuan.marketmanage.sale.bean.Sales;
+import com.fuyuan.marketmanage.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +69,7 @@ public class SaleFragment extends BaseFragment implements View.OnClickListener {
             @Override
             public void done(List<Sales> list, BmobException e) {
                 if (list.size() != 0) {
-                    Toast.makeText(mActivity, "销售信息查询成功", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "销售信息查询成功");
 
                     bmobUserList = (ArrayList<Sales>) list;
                     goodsAdapter = new SalesAdapter(mActivity, bmobUserList);
@@ -77,7 +77,7 @@ public class SaleFragment extends BaseFragment implements View.OnClickListener {
                     goodsAdapter.notifyDataSetChanged();
 
                 } else {
-                    Toast.makeText(mActivity, "没有销售信息", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "没有销售信息");
                 }
             }
         });
@@ -91,7 +91,7 @@ public class SaleFragment extends BaseFragment implements View.OnClickListener {
             case R.id.btn_goods:
                 String goods = mEtFindGoods.getText().toString();
                 if (TextUtils.isEmpty(goods)) {
-                    Toast.makeText(mActivity, "商品名称不能为空", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "商品名称不能为空");
                 } else {
                     query(goods);
                 }
@@ -130,14 +130,14 @@ public class SaleFragment extends BaseFragment implements View.OnClickListener {
             @Override
             public void done(List<Sales> list, BmobException e) {
                 if (list.size() != 0) {
-                    Toast.makeText(mActivity, "商品信息查询成功", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "商品信息查询成功");
 
                     bmobUserList = (ArrayList<Sales>) list;
                     goodsAdapter = new SalesAdapter(mActivity, bmobUserList);
                     mLlGoods.setAdapter(goodsAdapter);
 
                 } else {
-                    Toast.makeText(mActivity, "没有商品信息", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "没有商品信息");
                 }
             }
         });
@@ -151,14 +151,14 @@ public class SaleFragment extends BaseFragment implements View.OnClickListener {
             @Override
             public void done(List<Sales> list, BmobException e) {
                 if (list.size() != 0) {
-                    Toast.makeText(mActivity, "商品信息查询成功", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "商品信息查询成功");
 
                     bmobUserList = (ArrayList<Sales>) list;
                     goodsAdapter = new SalesAdapter(mActivity, bmobUserList);
                     mLlGoods.setAdapter(goodsAdapter);
 
                 } else {
-                    Toast.makeText(mActivity, "没有商品信息", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "没有商品信息");
                 }
             }
         });

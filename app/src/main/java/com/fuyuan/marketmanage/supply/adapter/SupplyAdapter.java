@@ -8,11 +8,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.bean.Supply;
 import com.fuyuan.marketmanage.supply.SupplyDescActivity;
+import com.fuyuan.marketmanage.utils.ToastUtils;
 
 import java.util.List;
 
@@ -72,9 +72,6 @@ public class SupplyAdapter extends BaseAdapter {
                 Intent intentDetail = new Intent(context, SupplyDescActivity.class);
                 intentDetail.putExtra("objectId", datalist.get(i).getObjectId());
                 context.startActivity(intentDetail);
-                //                Intent intentPhone = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + datalist.get
-                // (i).getPhone()));
-                //                context.startActivity(intentPhone);
 
             }
         });
@@ -87,9 +84,9 @@ public class SupplyAdapter extends BaseAdapter {
                     @Override
                     public void done(BmobException e) {
                         if (e == null) {
-                            Toast.makeText(context, "删除成功", Toast.LENGTH_SHORT).show();
+                            ToastUtils.toast(context, "删除成功");
                         } else {
-                            Toast.makeText(context, "删除失败", Toast.LENGTH_SHORT).show();
+                            ToastUtils.toast(context, "删除失败");
                         }
                     }
                 });

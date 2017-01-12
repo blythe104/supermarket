@@ -4,10 +4,10 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.base.BaseActivity;
+import com.fuyuan.marketmanage.utils.ToastUtils;
 import com.fuyuan.marketmanage.widget.title.CustomTitle;
 
 import cn.bmob.v3.BmobUser;
@@ -58,7 +58,7 @@ public class RegisterActivity extends BaseActivity {
         String userName = mUserName.getText().toString();
         String password = mUserPwd.getText().toString();
         if (TextUtils.isEmpty(userName) || TextUtils.isEmpty(password)) {
-            Toast.makeText(this, "用户名或者密码不能为空", Toast.LENGTH_SHORT).show();
+            ToastUtils.toast(this, "用户名或者密码不能为空");
         } else {
             bmobUser.setUsername(userName);
             bmobUser.setPassword(password);
@@ -66,9 +66,9 @@ public class RegisterActivity extends BaseActivity {
                 @Override
                 public void done(Object o, BmobException e) {
                     if (o != null) {
-                        Toast.makeText(RegisterActivity.this, "用户注册成功", Toast.LENGTH_SHORT).show();
+                        ToastUtils.toast(getApplicationContext(), "用户注册成功");
                     } else {
-                        Toast.makeText(RegisterActivity.this, "用户注册失败", Toast.LENGTH_SHORT).show();
+                        ToastUtils.toast(getApplicationContext(), "用户注册失败");
                     }
 
                 }

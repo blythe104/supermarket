@@ -7,11 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.base.BaseFragment;
 import com.fuyuan.marketmanage.user.adapter.UserAdapter;
+import com.fuyuan.marketmanage.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +61,7 @@ public class UserListFragment extends BaseFragment {
             @Override
             public void done(List<BmobUser> list, BmobException e) {
                 if (list.size() != 0) {
-                    Toast.makeText(mActivity, "用户信息查询成功", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "用户信息查询成功");
 
                     bmobUserList = (ArrayList<BmobUser>) list;
                     userAdapter = new UserAdapter(mActivity, bmobUserList);
@@ -69,7 +69,7 @@ public class UserListFragment extends BaseFragment {
                     userAdapter.notifyDataSetChanged();
 
                 } else {
-                    Toast.makeText(mActivity, "没有用户信息", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "没有用户信息");
                 }
             }
         });

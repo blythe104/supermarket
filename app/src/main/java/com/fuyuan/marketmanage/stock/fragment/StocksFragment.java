@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.base.BaseFragment;
 import com.fuyuan.marketmanage.stock.adapter.StockAdapter;
 import com.fuyuan.marketmanage.stock.bean.Stock;
+import com.fuyuan.marketmanage.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +59,7 @@ public class StocksFragment extends BaseFragment implements View.OnClickListener
             @Override
             public void done(List<Stock> list, BmobException e) {
                 if (list.size() != 0) {
-                    Toast.makeText(mActivity, "供货商信息查询成功", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "供货商信息查询成功");
 
                     stockList = (ArrayList<Stock>) list;
                     stockAdapter = new StockAdapter(mActivity, stockList);
@@ -67,7 +67,7 @@ public class StocksFragment extends BaseFragment implements View.OnClickListener
                     stockAdapter.notifyDataSetChanged();
 
                 } else {
-                    Toast.makeText(mActivity, "没有供货商信息", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "没有供货商信息");
                 }
             }
         });
@@ -81,7 +81,7 @@ public class StocksFragment extends BaseFragment implements View.OnClickListener
             case R.id.btn_stock:
                 String stock = mEtStock.getText().toString();
                 if (TextUtils.isEmpty(stock)) {
-                    Toast.makeText(mActivity, "供货商名称不能为空", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "供货商名称不能为空");
                 } else {
                     query(stock);
                 }
@@ -98,14 +98,14 @@ public class StocksFragment extends BaseFragment implements View.OnClickListener
             @Override
             public void done(List<Stock> list, BmobException e) {
                 if (list.size() != 0) {
-                    Toast.makeText(mActivity, "商品信息查询成功", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "商品信息查询成功");
 
                     stockList = (ArrayList<Stock>) list;
                     stockAdapter = new StockAdapter(mActivity, stockList);
                     mLlStock.setAdapter(stockAdapter);
 
                 } else {
-                    Toast.makeText(mActivity, "没有商品信息", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "没有商品信息");
                 }
             }
         });

@@ -14,6 +14,7 @@ import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.base.BaseFragment;
 import com.fuyuan.marketmanage.bean.Supply;
 import com.fuyuan.marketmanage.supply.adapter.SupplyAdapter;
+import com.fuyuan.marketmanage.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +60,7 @@ public class SupplyFragment extends BaseFragment implements View.OnClickListener
             @Override
             public void done(List<Supply> list, BmobException e) {
                 if (list.size() != 0) {
-                    Toast.makeText(mActivity, "供货商信息查询成功", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "供货商信息查询成功");
 
                     supplyList = (ArrayList<Supply>) list;
                     supplyAdapter = new SupplyAdapter(mActivity, supplyList);
@@ -67,7 +68,7 @@ public class SupplyFragment extends BaseFragment implements View.OnClickListener
                     supplyAdapter.notifyDataSetChanged();
 
                 } else {
-                    Toast.makeText(mActivity, "没有供货商信息", Toast.LENGTH_SHORT).show();
+                    ToastUtils.toast(mActivity, "没有供货商信息");
                 }
             }
         });

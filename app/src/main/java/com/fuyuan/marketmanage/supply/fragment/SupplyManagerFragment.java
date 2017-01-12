@@ -9,11 +9,11 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.base.BaseFragment;
 import com.fuyuan.marketmanage.bean.Supply;
+import com.fuyuan.marketmanage.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,6 @@ import java.util.List;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.SaveListener;
 
-import static cn.bmob.v3.Bmob.getApplicationContext;
 import static com.fuyuan.marketmanage.R.id.et_goods;
 
 /**
@@ -36,7 +35,7 @@ public class SupplyManagerFragment extends BaseFragment implements View.OnClickL
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             CheckBox box = (CheckBox) buttonView;
 
-            Toast.makeText(getApplicationContext(), "选择的是" + box.getText(), Toast.LENGTH_LONG).show();
+            ToastUtils.toast(mActivity, "选择的是" + box.getText());
 
         }
     };
@@ -116,7 +115,7 @@ public class SupplyManagerFragment extends BaseFragment implements View.OnClickL
         String address = mEtAddress.getText().toString();
 
         if (TextUtils.isEmpty(supply) || TextUtils.isEmpty(phone)) {
-            Toast.makeText(mActivity, "商品名称或者手机号码不能为空", Toast.LENGTH_SHORT).show();
+            ToastUtils.toast(mActivity, "商品名称或者手机号码不能为空");
         } else {
             supplybean.setSupply(supply);
             supplybean.setPhone(phone);
@@ -126,9 +125,9 @@ public class SupplyManagerFragment extends BaseFragment implements View.OnClickL
                 @Override
                 public void done(String s, BmobException e) {
                     if (e == null) {
-                        Toast.makeText(mActivity, "创建数据成功", Toast.LENGTH_SHORT).show();
+                        ToastUtils.toast(mActivity, "创建数据成功");
                     } else {
-                        Toast.makeText(mActivity, "创建数据失败" + e.toString(), Toast.LENGTH_SHORT).show();
+                        ToastUtils.toast(mActivity, "创建数据失败" + e.toString());
                     }
 
                 }
