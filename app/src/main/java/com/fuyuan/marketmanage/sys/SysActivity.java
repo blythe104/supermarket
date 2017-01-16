@@ -1,6 +1,7 @@
 package com.fuyuan.marketmanage.sys;
 
 import android.content.Intent;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
@@ -24,6 +25,7 @@ import java.util.List;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.DownloadFileListener;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 
@@ -45,13 +47,16 @@ public class SysActivity extends BaseActivity {
                     standHere();
                     break;
                 case GO_UPDATE:
-                    update();
+                    versionUpdate();
                     break;
             }
         }
     };
 
-    private void update() {
+    /**
+     * 版本更新
+     */
+    private void versionUpdate() {
         Toast.makeText(SysActivity.this, "更新ING", Toast.LENGTH_SHORT).show();
     }
 
@@ -100,6 +105,7 @@ public class SysActivity extends BaseActivity {
 
     /**
      * 查询服务器上的版本号
+     * 进行更新操作
      */
     private void queryVersion() {
         BmobQuery<VersionBean> query = new BmobQuery<>();
@@ -109,17 +115,47 @@ public class SysActivity extends BaseActivity {
             public void done(List<VersionBean> list, BmobException e) {
                 if (list.size() != 0) {
                     ToastUtils.toast(SysActivity.this, "版本号信息查询成功");
-
                     versionList = list;
                     String versionCode = versionList.get(0).getVersionCode();
+                    BmobFile versionFile=versionList.get(0).getVersionFile();
                     if (PackageManagerUtils.getVersionCode(SysActivity.this) < Integer.parseInt(versionCode)) {
-                        mHandler.sendEmptyMessage(GO_UPDATE);
+//                        mHandler.sendEmptyMessage(GO_UPDATE);
+
+
+                        if(versionFile!=null)
+                        {
+                            //下载
+                            downloadFile(versionFile);
+                        }
+
                     } else {
                         mHandler.sendEmptyMessage(GO_MAIN);
                     }
                 } else {
                     ToastUtils.toast(SysActivity.this, "没有版本信息");
                 }
+            }
+        });
+    }
+
+    private void downloadFile(BmobFile versionFile) {
+        File saveFile=new File(Environment.getExternalStorageDirectory(),versionFile.getFilename());
+        versionFile.download(saveFile, new DownloadFileListener() {
+
+            @Override
+            public void done(String s, BmobException e) {
+                if(e==null){
+                    ToastUtils.toast(SysActivity.this,"下载成功,保存路径:"+s);
+                    System.out.println("address：-----"+s);
+                }else{
+                    ToastUtils.toast(SysActivity.this,"下载失败："+e.getErrorCode()+","+e.getMessage());
+                }
+            }
+
+            @Override
+            public void onProgress(Integer value, long l) {
+                ToastUtils.toast(SysActivity.this,"download progress:"+value+","+l);
+
             }
         });
     }
