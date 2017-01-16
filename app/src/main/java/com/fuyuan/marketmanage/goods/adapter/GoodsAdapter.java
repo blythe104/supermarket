@@ -60,11 +60,11 @@ public class GoodsAdapter extends BaseAdapter {
             convertView.setTag(vh);
         } else
             vh = (viewHolder) convertView.getTag();
-        vh.tv_goods.setText(datalist.get(i).getGoodsName());
-        vh.tv_bid.setText(datalist.get(i).getBid());
-        vh.tv_price.setText(datalist.get(i).getPrice());
+            vh.tv_goods.setText(datalist.get(i).getGoodsName());
+            vh.tv_bid.setText(datalist.get(i).getBid());
+            vh.tv_price.setText(datalist.get(i).getPrice());
 
-        vh.btn_Del.setOnClickListener(new View.OnClickListener() {
+            vh.btn_Del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 GoodsBean goodsBean = new GoodsBean();
