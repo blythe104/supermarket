@@ -25,6 +25,7 @@
             android:layout_weight="1"
             android:background="@drawable/shape_edittext_border"
             android:hint="用户名长度：6-32个字符"
+            android:inputType="text"
             android:textSize="@dimen/login_input_textsize"
         />
 
@@ -49,6 +50,7 @@
             android:layout_marginRight="6dp"
             android:background="@drawable/shape_edittext_border"
             android:hint="密码长度：6-32个字符"
+            android:inputType="textPassword"
             android:textSize="@dimen/login_input_textsize"
             android:textStyle="normal"
         />

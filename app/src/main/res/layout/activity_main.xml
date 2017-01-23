@@ -1,51 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_columnWeight="2"
-    android:columnCount="2"
-    android:rowCount="4"
+    android:orientation="vertical"
 >
-    <Button android:id="@+id/btn_user"
-            style="@style/mainStyle"
-            android:layout_columnWeight="1"
-            android:text="用户管理"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    <Button android:id="@+id/btn_bill"
-            style="@style/mainStyle"
-            android:layout_columnWeight="1"
-            android:text="账单管理"/>
+        <Button android:id="@+id/btn_user"
+                style="@style/mainStyle"
+                android:text="用户管理"/>
 
-    <Button android:id="@+id/btn_goods"
-            style="@style/mainStyle"
-            android:layout_columnWeight="1"
-            android:text="商品管理"/>
+        <Button android:id="@+id/btn_bill"
+                style="@style/mainStyle"
+                android:text="账单管理"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button android:id="@+id/btn_goods"
+                style="@style/mainStyle"
+                android:text="商品管理"/>
 
-    <Button android:id="@+id/btn_supply"
-            style="@style/mainStyle"
-            android:layout_columnWeight="1"
-            android:text="供货商信息管理"/>
+        <Button android:id="@+id/btn_supply"
+                style="@style/mainStyle"
+                android:text="供货商信息管理"/>
+    </LinearLayout>
 
-    <Button android:id="@+id/btn_stock"
-            style="@style/mainStyle"
-            android:layout_columnWeight="1"
-            android:text="库存管理"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button android:id="@+id/btn_stock"
+                style="@style/mainStyle"
+                android:text="库存管理"/>
 
-    <Button android:id="@+id/btn_sys"
-            style="@style/mainStyle"
-            android:layout_columnWeight="1"
-            android:text="系统管理"/>
+        <Button android:id="@+id/btn_sys"
+                style="@style/mainStyle"
+                android:text="系统管理"/>
+    </LinearLayout>
 
-    <Button android:id="@+id/btn_money"
-            style="@style/mainStyle"
-            android:layout_columnWeight="1"
-            android:text="收取货款"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    <Button android:id="@+id/btn_saled"
-            style="@style/mainStyle"
-            android:layout_columnWeight="1"
-            android:text="售货记录"/>
+        <Button android:id="@+id/btn_money"
+                style="@style/mainStyle"
+                android:text="收取货款"/>
 
+        <Button android:id="@+id/btn_saled"
+                style="@style/mainStyle"
+                android:text="售货记录"/>
+    </LinearLayout>
 
-</GridLayout>
+</LinearLayout>

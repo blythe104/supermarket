@@ -121,7 +121,6 @@ public class SysActivity extends BaseActivity {
                     if (PackageManagerUtils.getVersionCode(SysActivity.this) < Integer.parseInt(versionCode)) {
 //                        mHandler.sendEmptyMessage(GO_UPDATE);
 
-
                         if(versionFile!=null)
                         {
                             //下载

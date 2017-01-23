@@ -41,8 +41,6 @@ public class GoodsManagerFragment extends BaseFragment implements View.OnClickLi
     @Override
     protected View initView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.goods_fragment, null);
-        //设置键盘模式
-//        mActivity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         //添加商品
         mEtQrcode = (EditText) view.findViewById(R.id.et_qrcode);
         mEtGoods = (EditText) view.findViewById(R.id.et_goods);

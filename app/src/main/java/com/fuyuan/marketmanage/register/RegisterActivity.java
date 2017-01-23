@@ -1,5 +1,6 @@
 package com.fuyuan.marketmanage.register;
 
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -7,6 +8,7 @@ import android.widget.EditText;
 
 import com.fuyuan.marketmanage.R;
 import com.fuyuan.marketmanage.base.BaseActivity;
+import com.fuyuan.marketmanage.login.LoginActivity;
 import com.fuyuan.marketmanage.utils.ToastUtils;
 import com.fuyuan.marketmanage.widget.title.CustomTitle;
 
@@ -67,6 +69,7 @@ public class RegisterActivity extends BaseActivity {
                 public void done(Object o, BmobException e) {
                     if (o != null) {
                         ToastUtils.toast(getApplicationContext(), "用户注册成功");
+                        startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     } else {
                         ToastUtils.toast(getApplicationContext(), "用户注册失败");
                     }

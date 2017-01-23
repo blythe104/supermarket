@@ -17,9 +17,14 @@
             android:id="@+id/tv_qrscan"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:background="@color/theme_gray"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/shape_btn"
             android:gravity="center"
-            android:text="识别二维码"/>
+            android:text="识别二维码"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"/>
 
         <TextView
             android:id="@+id/tv_title"
@@ -89,7 +94,11 @@
             android:layout_height="45dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="添加商品"/>
+            android:background="@drawable/shape_btn"
+            android:text="添加商品"
+            android:textColor="@color/colorWhite"
+            android:layout_marginBottom="4dp"
+            android:textSize="18sp"/>
 
     </LinearLayout>
 </ScrollView>
